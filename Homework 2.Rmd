@@ -1,0 +1,255 @@
+---
+
+---
+```{r}
+Cities<-read.delim(file="C:/UsersAshesi Academic Work/Sophomore- Year 2/1st Semester/Statistics/GhanaCities.txt",header=TRUE,na.strings="")
+```
+
+
+**Q.1**
+
+**a.** This is an observational Study.
+
+**b.** The type of sampling used is a cluster sampling.
+
+**c.** The sampling frame for the study is the hospital and registered clinic (public and private) in the randomly selected 8 cities whose populations are greater than 50,000 but less than 250,000 people. 
+
+**d.** 
+
+```{r}
+
+midCities<-Cities[Cities$Population > 50000 & Cities$Population < 250000, ]
+midCities
+x<-sample(1:length(midCities$City),8)
+sample<-midCities[x, ];sample
+
+```
+**e.**
+
+* In the line 1 of the code, a variable called midCities has been created and the names of cities with a population greater than 50,000 and less than 250,000 people has been assigned to it.
+
+
+* In line 2, the variable is been called which will display or print all the cities with a population greater than 50,000 and less than 250,000 people.
+
+
+* In line 3, 8 random numbers has been selected between 1 and the total number of cities whose population is greater than 50000 but less than 250,0000.......Randomly selecting 8 cities 
+
+
+* In line 4, all the data in the rows of the cities whose position falls on the randomly selected 8 numbers is been printed or displayed since a column number is not specified. ......creating a sub dataset of all the 8 cities which were randomly sampled
+
+ ***
+
+**Q2.**
+
+**a.**
+
+```{r}
+hist(Cities$Population, main="Histogram showing
+     Population Of all urban areas In Ghana", xlab = "Population", ylab = "Number of Cities", border="grey",col="darkmagenta", breaks = 40)
+
+```
+
+```{r}
+mean(Cities$Population)
+median(Cities$Population)
+```
+
+* Shape: From the above graph, the distribution is right skewed. The data falls toward the lower side of the scale and there are very few higher populations. We have a concentration of data among the small population and a long tail to the right. The vast majority of the cities have less population with very few cities having a large population.The mode of the distribution is unimodal. The mean of the distribution is 118393.2 with a median of 39435. In this distribution, the mean will be greater than the median due to the possibility of an outlier (118393.2 > 39435).
+
+* Center: The data seem to be centered around a population of 39,435 people.  Roughly half of the cities have their population been less than 39,435.
+
+* Spread: The data range from about 0 to about 2,300,000, so the approximate range equals 0 - 2,300,000 = 2,300,000.
+
+* Outlier: There seem to be two probable outliers to the far right and possibly three around the population 0f 500,000.
+
+**b**
+
+```{r}
+hist(midCities[x,]$Population,main="Histogram showing
+     Population Of mid-sized Cities in Ghana", xlab = "Population of Mid-sized Cities", ylab = "Number of Cities",breaks = 20, border="grey",col=rainbow(length(t)))
+
+```
+
+
+* Shape: From the above graph, the distribution is right skewed. The data falls toward the lower side of the scale and there are very few higher populations. The mode of the distribution will vary since it is a randomly selected sample with the effect taking place in the code. The mean of the distribution is 118393.2 with a median of 39435.(This is also subject to changes since it is a randomly select sample with the effect taking place in the code). In this distribution, the mean will be greater than the median due to the possibility of an outlier.
+
+* Center: The data seem to be centered around a population of 80,147 people.  Roughly half of the cities have their population been less than 80,147.
+
+* Spread: The data range from about 50,000 to about 250,000, so the approximate range equals 50,000 - 250,000 = 200,000. 
+
+* Outlier: There seem to be two probable outliers to the far right.
+
+ ***
+
+**Q3.**
+
+```{r}
+studentData<-read.delim(file="C:/Users/Desktop/Ashesi Academic Work/Sophomore- Year 2/1st Semester/Statistics/statistics_students.txt",header=TRUE,na.strings="")
+```
+
+
+**a.**
+
+
+```{r}
+sleep<-studentData$Sleep[!is.na(studentData$Sleep)]
+hist(studentData$Sleep,main ="Histogram showing 
+Number of hours slept by Students", xlab = "Number of Hours Slept", ylab = "Number of Students", col = rainbow(length(t)))
+```
+
+
+**b.** The distribution is roughly symmetrical.
+
+
+**c.**
+
+
+```{r}
+k<-mean(sleep)
+k
+h<-sd(sleep)
+h
+l<-length(sleep)
+l
+```
+
+
+*The mean hours slept by students is 6.45 (2 d.p)*
+
+*The standard deviation of the hours slept by students is 1.44 (2 d.p)*
+
+
+**Proportion Below The Mean**
+
+```{r}
+sum(sleep<k)/l * 100
+
+```
+
+* From the histogram, the number of students who fall below the mean are 69 students. The total students who answered that question on the survey was 149.
+
+
+* Therefore the proportion of students below the mean is *47.65101%.*
+
+
+**Proportion between one standard deviation of the mean**
+
+```{r}
+(sum(sleep<(k+1*h))-sum(sleep<(k-1*h)))/l * 100
+
+```
+
+* Therefore, proportion between one standard deviation and the mean is *62.42%.*
+
+
+
+ **Proportion between two standard deviation of the mean**
+
+```{r}
+(sum(sleep<(k+2*h))-sum(sleep<(k-2*h)))/l * 100
+
+```
+
+
+* Therefore, proportion between two standard deviation and the mean is *97.32%.*
+
+
+ **Proportion between three standard deviation of the mean implies:**
+
+```{r}
+(sum(sleep<(k+3*h))-sum(sleep<(k-3*h)))/l * 100
+
+```
+
+* Therefore, proportion between three standard deviation and the mean is *98.00%.*
+ 
+ 
+**From the test, the distribution does not really follow the empirical rule.** 
+
+ ****
+
+
+**Q4.**
+
+**a.**
+Systematic Sampling
+
+**b.** 
+
+```{r}
+Book1<-read.csv(file="C:/Users/Desktop/Book1.csv",header=TRUE,na.strings="")
+```
+
+
+```{r}
+Book1
+```
+
+
+```{r}
+lbl = paste(c("Silverstar Tower Branch", "Accra Mall Branch", "Osu Branch"));lbl
+boxplot(Book1,label="", main="Customers Waiting Period", ylab="Waiting Period (HOURS)",col =c("yellow", "red", "blue"))
+
+summary(Book1)
+```
+
+
+ * From the data, Silverstar Tower Branch had the highest customers at their premises (14 customers) followed by Accra Mall Branch (12 Customers) then finally Osu Branch (11 customers).  
+ 
+ 
+ * In Silverstar Tower Branch the minimum hours a customer spends waiting is 2.2 minutes with the maximum being 9.0 minutes whiles in Accra Mall Branch, the minimum is 6 minutes and the maximum being 7.9 minutes. The Osu Branch has its customers spending a minimum hours of 3 and a maximum hours of10.50.
+ 
+ 
+ * From the Box plot, Silverstar Tower has 50% of its customers (the median) spending 6.90 minutes waiting despite having more customers. The Accra Mall Branch  has 50% of its customers (the median) spending 7.15 minutes waiting despite having less customers and the Osu Branch has 50% of its customers (the median) spending 8.3 minutes despite having the least customers.
+ 
+ 
+ * Since, the Silverstar Tower has more customers and less waiting period it can be concluded that it satisfies its customers the most hence making it have the best performance. However, the number of staffs present there could be a lurking variable explaining why the customers spend less time there despite they been a lot.
+ 
+ 
+ * The Branch with the worst performance is the Osu Branch. This is because it has its customers spending more time in order to be served despite they having the least customers.
+ 
+ 
+ 
+ ***
+
+**Q5.**
+
+**a.** In case A, 
+
+* It is an observational study. This is because the participants themselves were already grouped into those taking oral contraceptives and those who are not hence there is no attempt on the researchers' part to interfere.
+
+* It is prospective. This is because, the values of the variables of interest (oral contraceptives intake or not) are recorded forward in time.
+
+**b.** In case B,
+
+* It is an experimental study. This is because the researchers take control of the explanatory variable of interest by assigning each nutrient to a plot. 
+
+* It is not a blind experimental Study. This because the researchers knew the amount of phosporous and nitrogen applied to each plot.
+
+
+ ***
+
+**Q6.**
+
+**a.** The sampling in case A is **systematic sampling.** This is because sample microchips from the production line are selected according to a random starting point and a fixed periodic interval, thus the 100th position after every chip is selected for inspection. This type of sampling will not be subjected to any clear bias. There might be some subtle sources of bias.
+
+
+**b.** The sampling in case B is **cluster sampling.** This is because a random sample of clusters was taken (5 crates of tomatoes from the 100 crates), and all the individuals within the selected clusters; (thus all the tomatoes in the chosen 5 crates) was used as sample for the test of E. Coli Contamination. This type os sampling paves way for bias since majority of the popluation of interest will not be touched on.
+
+
+**c.** The type of sampling in case C is **Convenience Sampling.** This is because the ASC members stood outside the cafeteria from 7:00am to 7:00pm asking the students to fill the which was the right place and time to suit the schedule of their research. This type of sampling paves way for bias since  the proximity to the Cafeteria might result in a disproportionate number of students favoring the available food option. Also, certain type of students might be chosen to fill the survey than others. 
+
+
+**d.** The type of sampling in case D is **Stratified Sampling.** This is because
+a random sample of group called strata is chosen (list of all student names, emails and nationalities from the registry) and an equal simple random sample were chosen from each strata (50 Ghanaian students and 50 international students) which is put together to form one strata (100 students). This type of sampling does not allow bias since it allows a fair representation of the population.
+
+ 
+ ---
+
+ 
+**Q.7**
+**a.** In case A, The educational qualification of the middle managers could be a lurking variable in the association between the salary of the middle managers and the amount of salary they earn. This is because managers with a higher educational qualification tend to earn more than those with low educational qualifiation. For instance, managers with a doctorate degree tend to earn more with those having an undergraduate degree.
+
+
+
+**b.** In case B, The amount exercise done can be a lurking variable. This is because Regular exercise aids in the regulatory of blood pumps from the heart as well as other systems of the body hence making one to live long..
