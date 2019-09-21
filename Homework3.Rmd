@@ -1,0 +1,519 @@
+
+
+**Q1.**
+
+**a.**
+Probability that the fraud resulted from a stolen or counterfeit card. 
+
+```{r}
+243/426+85/426
+```
+
+Therefore, P(the fraud resulted from a stolen or counterfeit card) = 243/426+85/426 = 0.77 (2 d.p)
+
+
+**b.**
+ Probability that the fraud is not from a stolen card
+ 
+ 
+```{r}
+85/426+52/426+46/426
+```
+
+
+ Therefore, Therefore, P(tprobability that the fraud is not from a stolen card) = 85/426+52/426+46/426 = 0.43 (2 d.p)
+ 
+ 
+**c.**
+It is an example of empirical probability because a random sample was used and the results recorded.
+
+
+**Q2.**
+
+ Different versions of the survey required if all possible arrangements are included:
+ 
+```{r}
+factorial(6)
+```
+
+
+Therefore, 720 different versions of the survey will be required if all possible arrangements are included.
+
+**Q3.**
+
+Different ways the treatment group can be selected
+
+```{r}
+factorial(20)/(factorial(8)*factorial(20-8))
+```
+
+
+ Therefore, 125,970 are the different ways the treatment group can be selected. Looking at the question, the order in which the treatment will be done is not really necessary hence the need for the combination method.
+
+**Q4.**
+
+**a.**
+```{r}
+factorial(18)/factorial(18-3)
+```
+
+
+There the selection can be done in 4,896 ways.
+
+
+**b.** Probability that there is at least one male and one female represented among the three officers selected implies:
+
+```{r}
+(((factorial(8)/factorial(8-2))*(factorial(10)/factorial(10-1))+(factorial(8)/factorial(8-1))*(factorial(10)/factorial(10-2))))/(factorial(18)/factorial(18-3))
+
+```
+
+The probability that there is at least one male and one female represented among the three officers selected 0.26 (2 d.p).
+
+**Q5.**
+
+ Let:
+ 
+ C=Cancer
+ 
+ DP = detecting positive
+
+ P(cancer)= 0.02
+ 
+ P(DP|C)= 0.95
+ 
+ P(DP|not c)= 0.03
+ 
+
+The probability that a randomly selected person from the community when tested:
+
+**a.** Reacts positively to the test.
+
+```{r}
+0.95*0.02+(0.98*0.03)
+```
+
+Therefore, P(Reacts positively to the test.) = 0.95(0.02)+(0.98*0.03) =0.048 (2 d.p)
+
+**b.** Has cancer given that the test is positive.
+
+```{r}
+(0.02*0.95)/0.048
+
+```
+
+Therefore, P(Has cancer given that the test is positive) = P(C|DP) (0.02*0.95)/0.048 =0.40 (2 d.p).
+
+
+**c.** From the result in b, i will say it is less likely for the patient to have cancer because the test result shows a probability that is less than a 50% chance of the patient been tested positive for cancer hence having a less chance of been a cancer patient. I will also counsel them to do the test again.
+
+
+**d.**
+The two events are independent. That is the fact that a person has cancer is not affected on the fact that he or she will test positive and vice versa with regards to the person not having cancer. This is because P(C|DP) is not equal to P(C) or P(not C|DP) is not equal to P(not C). Also the two events are joint. This because they can both happen at the same time. A person who has cancer can test positive. Likewise a person who does not have cancer can test that he or she does not have cancer.
+
+**Q6.**
+
+**a.** P(M and H) 
+
+```{r}
+66/1000
+```
+
+Therefore, P(M and H) is 0.07 (2 d.p).
+
+**b.** 	P(M' and H)
+
+```{r}
+36/1000
+```
+
+Therefore, P(M' and H) is 0.04 (2 d.p).
+
+**c.** P(H)
+
+```{r}
+102/1000
+```
+
+Therefore, P(H) is 0.10 (2 d.p).
+
+**d.** P(M???H) 
+ This implies P(M and H)/ P(H)
+ 
+```{r}
+0.07/0.102
+```
+
+Therefore, P(M|H) is 0.69 (2 d.p).
+
+**e.** M and H are independent events. This is because for two events to be independent, P(A|B) should be equal to P(A). Given the two events are represented by A and B respectiveley. From above, P(M|H) = 0.69 and P(M) = 0.5. Since P(M|H) is not equal to P(M), M and G are independent.
+
+
+ *Contigency Table that compares the likelihood of hiding Investment (I) purchases with gender*
+
+```{r}
+smoke <- matrix(c(76,52,128,424,448,872,500,500,1000),ncol=3,byrow=TRUE)
+ colnames(smoke) <- c("Male","Female (M')","Total")
+ rownames(smoke) <- c("Hide","Not Hide","Total")
+ smoke <- as.table(smoke)
+ smoke
+
+```
+
+
+**f.** Probability that He or she is likely to hide investments implies P(M and I) + P(M' and I)
+
+```{r}
+76/1000+52/1000
+```
+
+Therefore, P(He or she is likely to hide investments) is 0.13 (2 d.p)
+
+ *Contigency Table that compares the likelihood of hiding Electronic (E) purchases with gender.*
+
+```{r}
+smoke <- matrix(c(79,56,135,421,365,786,500,500,1000),ncol=3,byrow=TRUE)
+ colnames(smoke) <- c("Male","Female (M')","Total")
+ rownames(smoke) <- c("Hide","Not Hide","Total")
+ smoke <- as.table(smoke)
+ smoke
+
+```
+
+
+**g.** Probability person is male and is likely to hide electronics purchases implies:
+
+P(M and E)
+
+```{r}
+79/1000
+```
+
+Therefore, P(the person is male and is likely to hide electronics purchases) is 0.08 (2 d.p)
+
+ *Contigency Table that compares the likelihood of hiding Clothing (C) purchases with gender.*
+
+```{r}
+smoke <- matrix(c(62,116,178,438,384,822,500,500,1000),ncol=3,byrow=TRUE)
+ colnames(smoke) <- c("Male","Female (M')","Total")
+ rownames(smoke) <- c("Hide","Not Hide","Total")
+ smoke <- as.table(smoke)
+ smoke
+
+```
+
+**h.** Probability that the person is female and is likely to hide clothing purchases implies: 
+
+P(M' and C).
+
+```{r}
+116/1000
+```
+
+Therefore, P(the person is female and is likely to hide clothing purchases) is 0.12 (2 d.p).
+
+
+
+**i.** Given that a person hides investments, the probability that the person is male implies:
+
+P(M|I) = P(M and I)/P(I)
+
+```{r}
+0.076/0.128
+```
+
+
+Therefore, P(M|I) is 0.59 (2 d.p).
+
+**j.** Given that a person hides clothing purchases, the probability that the person is female implies:
+
+
+P(M'|C) = P(M' and C)/ P(C)
+
+```{r}
+0.116/0.178
+```
+
+Therefore, P(M' and C) is 0.65 (2 d.p).
+
+ *Contigency Table that compares the likelihood of hiding Cash (Ca) purchases with gender.*
+
+```{r}
+smoke <- matrix(c(126,133,259,374,363,737,500,500,1000),ncol=3,byrow=TRUE)
+ colnames(smoke) <- c("Male","Female(M')","Total")
+ rownames(smoke) <- c("Hide","Not Hide","Total")
+ smoke <- as.table(smoke)
+ smoke
+
+```
+
+**k.** Given that the respondent is female, the probability that she hides cash from her husband implies:
+
+
+P(Ca and M')= 133/1000= 0.133
+
+P(Ca|M')= P(Ca and M')/P(M')
+
+```{r}
+0.133/0.500
+```
+
+Therefore, P(Ca|M') is 0.27 (2 d.p).
+
+**l.** I think it will be the same for my country, Ghana to an extent. This is because females are more likely to hide clothes purchases, food purchases and cash purchases as compared to males. But in view of electronic purchases, investment, entertainment and travel men are more likey to hide these purchases. In general,between couples,  males are more likely to hide purchases made than females.
+
+**Q7.**
+
+```{r}
+load("C:/Users/Desktop/auto_premiums.RData")
+```
+
+
+**a.**
+```{r}
+x<-data$Premium
+hist(x, main="Histogram showing
+     Monthly cost of automobile insurance for 50
+     Randomly selected US adults", xlab = "Monthly Insurance Cost", ylab = "Number of Adults", border="grey",col="darkmagenta", breaks=5)
+```
+
+
+**b.**
+The distribution of auto premium insurance is roughly symmetric. I expect it to follow the empirical or standard deviation rule because it has the normal shape and roughly symmetrical.
+
+
+**c.**
+
+```{r}
+k<-mean(x)
+k
+h<-sd(x)
+h
+l<-length(x)
+l
+```
+
+ The mean of the auto insurance premium is **$62.98**.
+ 
+ The standard deviation of the auto insurance premium is **$15.18** (2 d.p).
+ 
+ The mean shows the average monthly cost of automobile insurance. It is used to measure the center of the distribution. The standard deviation shows the distance of the data from the mean. It shows how wide a range the monthly insurance cost span. From the distirbution, the small standard deviation means that the values in a statistical data set (the monthly cost of insurance) are close to the mean of the data set, on average hence less variation.
+ 
+ 
+**d.**
+
+**Proportion between one standard deviation of the mean**
+
+```{r}
+(sum(x<(k+1*h))-sum(x<(k-1*h)))/l * 100
+```
+
+
+Therefore, the probability that an insurance premium chosen at random is within one standard deviation of the mean is **62% or 0.62**.
+
+**e.**
+
+**Proportion between two standard deviation of the mean**
+
+```{r}
+(sum(x<(k+(2*h)))-sum(x<(k-(2*h))))/l * 100
+```
+
+
+Therefore, the probability that an insurance premium chosen at random is within two standard deviation of the mean is **100% or 1**.
+
+**Q8.**
+
+**a.**
+
+ (i). The for loop execute a command for a prescribed number of times, as controlled by a counter or an index, incremented at each iteration cycle. In a loop, testing whether variable's current value is within a specified range. A range is been defined for loop to start in the initialization.
+
+If the condition is not met and the resulting outcome is False, the loop is never executed. This is indicated by the loose arrow on the right of the for loop structure. The program will then execute the first instruction found after the loop block.
+
+If the condition is verified, an instruction or block of instructions is executed. 
+
+  (ii). The value of y based on the position (i) of n is being compared with the randomly selected 3 numbers. If the value of y is equal to the randomly selected numbers, False is printed if otherwise then True is printed. After this, all the out come for True (i.e if they are different) are sumed up and divided by the total outcomes of n to get the probability at which the 3 passengers get off at different floors.
+  
+  
+**b.**
+
+(i). From running the simulation 3 times, the following are the values of p respectively: 0.4, 0.8 and 0.6
+
+(ii). The three values of p are changing because the numbers used to calculate p were randomly selected.
+
+**c.**
+
+(i). From running the simulation a 1,000 times, p is 0.54.
+    
+(ii). From running the simulation a 10,000 times, p is 0.55 (2 d.p).
+
+ (iii). The Law of Large Numbers states that as the number of trials increases, the relative frequency becomes the actual probability. So, using this law, as the number of simulations increases, the empirical probability gets closer and closer to the theoretical probability. The more simulations that are performed (n), the closer the relative frequency gets to the true probability (p) of the event.As n is increased the actual probability that all the three people will get off the elevator on different floors is approached.
+ 
+**d.** total outcome of the list of all of the possible floor choices for the three elevator passengers:
+
+```{r}
+6*6*6
+```
+
+Therefore, there will be 216 items on the list.  This is because each passenger can be on any of the floors hence having 6 choices each. So in all to get the sample space or the choice of all, it is going to be passenger 1 and passenger 2 and passenger 3. This will intend give you 6 by 6 by 6. 
+
+**e.** Choices on the list that would have all of the elevator passengers getting off on different floors.
+
+```{r}
+factorial(6)/factorial(6-3)
+```
+
+Therefore, there will be 120 choices on the list that would have all the elevator passengers getting off on different floors. In looking out for the possible choices, the order will be taken into consideration based on the question. Hence the need to use the permutation method to calculate the number of choices of different elevator floors to be on the list.
+
+**f.** (i). The theoretical probability that the three passengers alight on different floors. 
+
+```{r}
+(factorial(6)/factorial(6-3))/(6*6*6)
+```
+
+
+Therefore, the theoretical probability that the three passengers alight on different floors is 0.56 (2 d.p).
+
+(ii). The theoretical probabilty compared to the empirical probability that the three passengers will alight on different floors is the same (0.56 against 0.56) The empirical probability gets closer to the actual probability as the number of repitions are increased. 
+
+**g.** **The theoretical probability that the 2 passengers will get off on different floors:**
+
+Total choices for the two passengers:
+
+
+```{r}
+6*6
+```
+Therefore total choices for the two passengers is 36.
+
+Choices on the list that would have all of the 2 elevator passengers getting off on different floors.
+
+```{r}
+factorial(6)/factorial(6-2)
+```
+
+Therefore, there will be 30 choices on the list that would have all the 2 elevator passengers getting off on different floors.
+
+Therefore, the theoretical probability that the 2 passengers will get off on different floors implies:
+
+```{r}
+(factorial(6)/factorial(6-2))/(6*6)
+```
+
+Therefore, the theoretical probability that the 2 passengers will get off on different floors is 0.83 (2 d.p).
+
+
+**h.** **The theoretical probability that the 5 passengers will get off on different floors:**
+
+
+Total choices for the five passengers:
+
+
+```{r}
+6*6*6*6*6
+```
+Therefore total choices for the 5 passengers is 7776.
+
+Choices on the list that would have all of the 5 elevator passengers getting off on different floors implies:
+
+```{r}
+factorial(6)/factorial(6-5)
+```
+
+Therefore, there will be 720 choices on the list that would have all the 5 elevator passengers getting off on different floors.
+
+The theoretical probability that the 5 passengers will get off on different floors implies:
+
+```{r}
+(factorial(6)/factorial(6-5))/(6*6*6*6*6)
+```
+
+Therefore, the theoretical probability that the 5 passengers will get off on different floors is 0.09 (2 d.p).
+
+
+i. **The theoretical probability that the six riders will get off at different floors.**
+
+list of all of the possible floor choices for the three elevator passengers:
+
+```{r}
+12*12*12*12*12*12
+```
+ 
+the 6 passengers has 2,985,984 list of all possible floor choices.
+
+Choices on the list that would have all of the elevator passengers getting off on different floors
+
+```{r}
+factorial(12)/factorial(12-6)
+```
+
+There is 665,280 choices on the list that would have all of the elevator passengers getting off on different floors.
+
+Therefore,the theoretical probability that the six riders will get off at different floors implies:
+
+```{r}
+(factorial(12)/factorial(12-6))/(12*12*12*12*12*12)
+```
+
+Therefore, the six riders have a probability of 0.22 (2 d.p) of getting off at different floors.
+
+
+**The Birthday Problem**
+
+j. 
+(i). P(six students' birthday falling on different month) iimplies:
+
+```{r}
+6/12
+```
+
+ P(six students' birthday falling on different month) = 1/2 or 0.5
+
+(ii). Probability that at least two people in the study group have the same birth month implies:
+
+  1-P(no people have birthday in same month).
+
+```{r}
+1-((factorial(12)/factorial(6))/12^6)
+```
+
+Therefore, P(at least two people in the study group have the same birth month) is 0.78 (2 d.p).
+
+
+**k.** Probability that at least two students have the same birthday implies: 1-(Probability that no students have the same birthday)
+
+Probabilitiy that no students have the same birthday is been determined by the simulation below:
+
+```{r}
+n <- 10000                                    
+y <- rep(FALSE,n)                  
+for (i in 1:n) {
+x <- sample(1:365,60,replace=TRUE)                     
+x
+y[i] <- anyDuplicated(x) == 0}                              
+p <- sum(y)/n;p                                                     
+
+```
+
+From the simulation, the probability that no students have the same birthday is 0.0063. However, this is subject to changes when runned again since 60 sample birthdays were chosen at random from 365 birthdays.
+
+Therefore, the probability that at least two students have the same birthday implies:
+
+```{r}
+1-0.0063
+```
+
+Hence, the probability that at least two students have the same birthday is 0.994 (3 d.p) or 99.4%
+
+
+**Q9.**
+
+**a.** The two events are Independent and joint. This is because	the fact that the event that a registered voter plans to vote for the incumbent candidate three months before the election occurs does not affect the fact that the registered voter will actually vote for the candidate hence making it independent. The two events are joint because they can happen at the same time.
+
+**b.** The two events are Independent and joint. This is independent because if the event that a person selected at random has blood type O occurs or not it has no effect on the fact that person selected at random graduated from college first class upper will occur. It is joint because the two events can happen at the same time.
+
+**c.** The three events are Dependent and disjoint. It is dependent because the likeliness of one occuring does not affect the likeliness of the other occuring. The events are disjoint because they can not happen at the same time.
+
+**d.** The two events are Independent and joint. Independent because the likeliness of event A occuring or not does not affect affect the likeliness of event B occuring. The events are joint because they can happen at the same time.
+
+**e.** The two events are Independent and joint. This is because the fact that event A will occur or not does not affect the fact that event B will occur. The events are joint because they can occur at the same time.
